@@ -1,0 +1,7 @@
+{
+  "name": "Aura MiniStore",
+  "description": "A high-end, minimal ecommerce platform with an integrated Gemini AI shopping assistant for personalized product recommendations.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
