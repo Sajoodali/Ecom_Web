@@ -170,13 +170,13 @@ const App: React.FC = () => {
               <div className="space-y-24">
                 {/* Modern Hero Section */}
                 <div className="relative rounded-[60px] overflow-hidden bg-slate-950 h-[500px] sm:h-[650px] flex items-center shadow-3xl shadow-slate-200/50 group">
-                  <div className="absolute inset-0">
+                  <div className="absolute inset-0 overflow-hidden">
                     <img 
-                      src="https://images.unsplash.com/photo-1542491595-3395bbff9fe0?q=80&w=2000" 
-                      className="w-full h-full object-cover opacity-60 transition-transform duration-[10s] group-hover:scale-110" 
+                      src="https://source.unsplash.com/random/2000x1200?workspace,desk,tech" 
+                      className="w-full h-full object-cover hero-bg-blur transition-transform duration-[12s] group-hover:scale-110" 
                       alt="Hero"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-tr from-slate-950 via-slate-900/60 to-indigo-900/40"></div>
+                    <div className="absolute inset-0 bg-gradient-to-tr from-slate-950/70 via-slate-900/40 to-indigo-900/25"></div>
                   </div>
                   <div className="relative z-10 max-w-2xl px-12 sm:px-20 animate-fade-up">
                     <span className="inline-flex items-center px-4 py-1.5 bg-indigo-600/20 backdrop-blur-md text-indigo-400 border border-indigo-400/20 rounded-full text-[10px] font-black uppercase tracking-[0.3em] mb-8">

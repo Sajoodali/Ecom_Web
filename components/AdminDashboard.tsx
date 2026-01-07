@@ -89,11 +89,16 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBack, products, setPr
 
   if (!isAuthorized) {
     return (
-      <div className="min-h-screen bg-slate-950 flex items-center justify-center p-6">
+      <div className="admin-dashboard min-h-screen bg-slate-950 flex items-center justify-center p-6">
         <div className="mesh-bg absolute inset-0 opacity-20"></div>
-        <div className="w-full max-w-sm bg-white rounded-[50px] p-12 shadow-3xl relative z-10 text-center animate-fade-up">
-          <div className="w-20 h-20 bg-slate-900 rounded-[30px] flex items-center justify-center text-white font-black text-3xl mx-auto mb-10 shadow-2xl rotate-6">A</div>
-          <h2 className="text-3xl font-black mb-10 tracking-tighter text-slate-900">Console Gate</h2>
+        <div className="w-full max-w-xs login-card relative z-10 text-center animate-fade-up">
+          <div className="login-brand">
+            <div className="brand-badge">A</div>
+            <div>
+              <h2 className="login-title">Console Gate</h2>
+              <div className="login-sub">Administrator access — authorized personnel only</div>
+            </div>
+          </div>
           <form onSubmit={handleAdminLogin} className="space-y-6">
             <input 
               type="password" 
@@ -101,10 +106,13 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBack, products, setPr
               value={adminPass}
               autoFocus
               onChange={(e) => setAdminPass(e.target.value)}
-              className="w-full p-6 bg-slate-50 border-2 border-transparent rounded-3xl outline-none text-center font-black text-3xl tracking-[0.8em] focus:border-indigo-600 transition-all text-slate-900"
+              className="w-full bg-transparent border-none outline-none text-center text-slate-900"
             />
-            <button className="w-full py-5 bg-slate-900 text-white font-black rounded-3xl shadow-xl hover:bg-indigo-600 transition-all active:scale-95 text-xs uppercase tracking-widest">Authenticate</button>
-            <button type="button" onClick={onBack} className="w-full text-[10px] text-slate-400 font-black uppercase tracking-widest py-2 hover:text-slate-900 transition-colors">Return to Surface</button>
+            <div className="flex flex-col gap-2">
+              <button className="btn-primary w-full">Authenticate</button>
+              <button type="button" onClick={onBack} className="btn-ghost">Return to Surface</button>
+            </div>
+            <div className="login-help">Need help? Contact the owner for credentials.</div>
           </form>
         </div>
       </div>
@@ -112,7 +120,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBack, products, setPr
   }
 
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen bg-[#fcfdff]">
+    <div className="admin-dashboard flex flex-col lg:flex-row min-h-screen bg-[#fcfdff]">
       {feedback && (
         <div className={`fixed top-10 right-10 px-8 py-5 rounded-3xl shadow-3xl z-[150] text-white font-black animate-fade-up flex items-center gap-4 ${feedback.type === 'success' ? 'bg-slate-900' : 'bg-rose-500'}`}>
            <span className="text-xl">{feedback.type === 'success' ? '✓' : '✕'}</span>

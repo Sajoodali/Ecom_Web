@@ -1,0 +1,246 @@
+/* Global adjustments to reduce overly large fonts and spacing
+   Loaded after Tailwind CDN so these rules override utility classes.
+*/
+
+:root {
+  /* slightly smaller base than browser default to compact the layout */
+  font-size: 15px;
+}
+
+html, body {
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Reduce heading and base sizes */
+h1, .text-6xl { font-size: 2.25rem !important; line-height: 1.05 !important; }
+.text-5xl { font-size: 1.75rem !important; }
+.text-4xl { font-size: 1.5rem !important; }
+.text-3xl { font-size: 1.25rem !important; }
+.text-2xl { font-size: 1.125rem !important; }
+.text-xl { font-size: 1rem !important; }
+.text-lg { font-size: 0.9375rem !important; }
+.text-base { font-size: 0.9375rem !important; }
+.text-sm { font-size: 0.8125rem !important; }
+.text-xs { font-size: 0.75rem !important; }
+
+/* Tame oversized paddings and gaps used in hero/profile cards */
+.p-20 { padding: 2.5rem !important; }
+.px-8 { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+.py-4 { padding-top: 0.75rem !important; padding-bottom: 0.75rem !important; }
+.px-6 { padding-left: 1rem !important; padding-right: 1rem !important; }
+.py-3 { padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; }
+.px-4 { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+.py-2 { padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; }
+
+/* Reduce oversized avatar / hero blocks */
+.w-32 { width: 5rem !important; }
+.h-32 { height: 5rem !important; }
+.text-5xl { font-size: 1.75rem !important; }
+
+/* Headings spacing */
+.mb-6 { margin-bottom: 1rem !important; }
+.mb-2 { margin-bottom: 0.5rem !important; }
+
+/* Slightly tighten tracking for headings that looked very wide */
+.tracking-widest { letter-spacing: 0.03em !important; }
+.tracking-tighter { letter-spacing: -0.01em !important; }
+
+/* Reduce large border-radius visuals for compact look */
+.rounded\[40px\] { border-radius: 12px !important; }
+.rounded-2xl { border-radius: 12px !important; }
+
+/* Optional smaller shadows to avoid huge visual weight */
+.shadow-2xl { box-shadow: 0 10px 20px rgba(2,6,23,0.08) !important; }
+.shadow-xl { box-shadow: 0 6px 14px rgba(2,6,23,0.06) !important; }
+
+/* Make cards more compact when large utility classes are used */
+.p-12 { padding: 1.5rem !important; }
+.p-10 { padding: 1.25rem !important; }
+
+/* Ensure buttons don't feel oversized */
+.px-8.py-3, .px-8.py-4, .px-8.py-2 { padding-left: 1.5rem !important; padding-right: 1.5rem !important; padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; }
+
+/* Small helper to quickly reduce overall scale if needed */
+.compact * { transform: scale(0.98); transform-origin: top left; }
+
+/* End of overrides */
+
+/* Admin dashboard specific compacting */
+.admin-dashboard {
+  --admin-base-font: 14px;
+  font-size: var(--admin-base-font);
+}
+
+.admin-dashboard h1, .admin-dashboard .text-6xl { font-size: 1.75rem !important; }
+.admin-dashboard .text-4xl { font-size: 1.25rem !important; }
+.admin-dashboard .text-3xl { font-size: 1.1rem !important; }
+.admin-dashboard .text-2xl { font-size: 1rem !important; }
+.admin-dashboard .text-xl { font-size: 0.95rem !important; }
+
+/* Compact paddings used heavily in the admin */
+.admin-dashboard .p-12 { padding: 1rem !important; }
+.admin-dashboard .p-16 { padding: 1rem !important; }
+.admin-dashboard .p-20 { padding: 1.25rem !important; }
+.admin-dashboard .px-12 { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+.admin-dashboard .py-10 { padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; }
+.admin-dashboard .px-8 { padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
+.admin-dashboard .py-5 { padding-top: 0.4rem !important; padding-bottom: 0.4rem !important; }
+
+/* Smaller sidebar items */
+.admin-dashboard aside .w-80 { width: 18rem !important; }
+.admin-dashboard aside .p-10 { padding: 0.75rem !important; }
+.admin-dashboard aside .mb-20 { margin-bottom: 1rem !important; }
+.admin-dashboard aside .px-8.py-5 { padding-left: 0.5rem !important; padding-right: 0.5rem !important; padding-top: 0.4rem !important; padding-bottom: 0.4rem !important; }
+
+/* Tables compact */
+.admin-dashboard table th, .admin-dashboard table td { padding: 0.6rem 0.75rem !important; }
+.admin-dashboard img.w-20 { width: 3rem !important; height: 3rem !important; }
+.admin-dashboard .text-2xl, .admin-dashboard .text-3xl { font-size: 1rem !important; }
+
+/* Smaller badges and chips */
+.admin-dashboard .px-6 { padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
+.admin-dashboard .py-3 { padding-top: 0.25rem !important; padding-bottom: 0.25rem !important; }
+
+/* Reduce large numeral display in overview card */
+.admin-dashboard .text-9xl { font-size: 3rem !important; }
+
+/* Compact modal/form */
+.admin-dashboard .max-w-2xl { max-width: 42rem !important; }
+.admin-dashboard .p-20 { padding: 1rem !important; }
+
+/* Fancy visual polish for admin */
+.admin-dashboard .card-compact {
+  border-radius: 14px !important;
+  padding: 0.85rem !important;
+  box-shadow: 0 8px 20px rgba(2,6,23,0.06) !important;
+}
+
+.admin-dashboard .fancy-accent {
+  position: relative;
+  overflow: hidden;
+}
+.admin-dashboard .fancy-accent::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(120deg, rgba(99,102,241,0.08), rgba(99,102,241,0.025));
+  pointer-events: none;
+  filter: blur(12px);
+}
+
+/* Softer sidebar buttons */
+.admin-dashboard aside button {
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+.admin-dashboard aside button:hover {
+  transform: translateY(-3px) scale(1.01);
+}
+
+/* Compact nav text */
+.admin-dashboard aside span, .admin-dashboard aside .text-2xl { font-size: 0.95rem !important; }
+
+/* Toast polish */
+.admin-dashboard .fixed.top-10.right-10 {
+  right: 1rem !important;
+  top: 1rem !important;
+  padding: 0.6rem 0.8rem !important;
+  border-radius: 12px !important;
+}
+.admin-dashboard .fixed.top-10.right-10 .text-xl { font-size: 1rem !important; }
+.admin-dashboard .fixed.top-10.right-10 .text-xs { font-size: 0.75rem !important; }
+
+/* Table responsiveness and density */
+.admin-dashboard .overflow-x-auto { -webkit-overflow-scrolling: touch; }
+.admin-dashboard table { border-collapse: separate; border-spacing: 0 0.5rem; }
+.admin-dashboard tbody tr { background: white; border-radius: 12px; }
+
+/* Tighter list rows */
+.admin-dashboard .px-12.py-10 { padding-left: 0.6rem !important; padding-right: 0.6rem !important; padding-top: 0.65rem !important; padding-bottom: 0.65rem !important; }
+
+/* Subtle hover highlight for rows */
+.admin-dashboard tbody tr:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(2,6,23,0.05); }
+
+/* Smaller form inputs in modal for compact look */
+.admin-dashboard input[type="text"], .admin-dashboard input[type="number"], .admin-dashboard textarea {
+  padding: 0.6rem 0.75rem !important;
+  border-radius: 12px !important;
+}
+
+/* Make primary CTA slightly more prominent but compact */
+.admin-dashboard .px-12.py-6 {
+  padding-left: 0.7rem !important; padding-right: 0.7rem !important; padding-top: 0.55rem !important; padding-bottom: 0.55rem !important;
+  border-radius: 12px !important;
+}
+
+/* Professional login card styles */
+.admin-dashboard .login-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(246,248,255,0.98));
+  border-radius: 16px;
+  padding: 1rem 1.125rem;
+  max-width: 340px;
+  box-shadow: 0 18px 40px rgba(2,6,23,0.08), 0 2px 6px rgba(2,6,23,0.04) inset;
+  border: 1px solid rgba(15,23,42,0.04);
+}
+
+/* Hero background blur and subtle motion */
+.hero-bg-blur {
+  filter: blur(8px) saturate(1.05) contrast(1.02);
+  transform-origin: center;
+  will-change: transform, filter;
+}
+
+/* gentle parallax pan animation */
+@keyframes heroPan {
+  0% { transform: scale(1.02) translateX(0%); }
+  50% { transform: scale(1.05) translateX(-3%); }
+  100% { transform: scale(1.02) translateX(0%); }
+}
+.hero-bg-blur { animation: heroPan 20s ease-in-out infinite; }
+
+/* reduce visual noise under content */
+.hero-bg-blur + .absolute.inset-0 { mix-blend-mode: multiply; }
+
+/* optional subtle vignette for hero */
+.hero-vignette::after {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  box-shadow: inset 0 120px 220px rgba(2,6,23,0.28), inset 0 -80px 120px rgba(2,6,23,0.12);
+  border-radius: inherit;
+}
+
+
+.admin-dashboard .login-brand {
+  display: flex; align-items: center; gap: 0.75rem; justify-content: center; margin-bottom: 0.6rem;
+}
+.admin-dashboard .brand-badge {
+  width: 44px; height: 44px; border-radius: 10px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; color:#fff;
+  background: linear-gradient(135deg,#6366f1,#8b5cf6);
+  box-shadow: 0 8px 22px rgba(99,102,241,0.12);
+}
+.admin-dashboard .login-title { font-size: 1.05rem; font-weight:800; color:#0f172a; margin:0; }
+.admin-dashboard .login-sub { font-size:0.8rem; color:#6b7280; margin-top:0.15rem; }
+
+.admin-dashboard input[type="password"] {
+  background: #fbfdff; border: 1px solid rgba(15,23,42,0.06); padding: 0.55rem 0.75rem; border-radius: 10px; font-weight:800; letter-spacing:0.18em; font-size:1.05rem;
+}
+
+.admin-dashboard .btn-primary {
+  background: linear-gradient(90deg,#4f46e5,#7c3aed); color: #fff; padding: 0.55rem 0.85rem; border-radius: 10px; font-weight:800; box-shadow: 0 10px 30px rgba(79,70,229,0.12); border: none;
+}
+.admin-dashboard .btn-primary:hover { transform: translateY(-2px); }
+
+.admin-dashboard .btn-ghost { background: transparent; color:#6b7280; padding:0.35rem 0.5rem; font-weight:700; }
+
+.admin-dashboard .login-help { font-size:0.75rem; color:#94a3b8; margin-top:0.5rem; text-align:center; }
+
+/* Reduce opacity of heavy background mesh in admin for clarity */
+.admin-dashboard .mesh-bg { opacity: 0.06 !important; }
+
+/* compact badge */
+.admin-dashboard .rounded-2xl { border-radius: 10px !important; }
+.admin-dashboard .px-6 { padding-left: 0.45rem !important; padding-right: 0.45rem !important; }
+
+/* Tighter spacing for action buttons */
+.admin-dashboard .px-12.py-6 { padding-left: 0.75rem !important; padding-right: 0.75rem !important; padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; }
+
