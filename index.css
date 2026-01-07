@@ -184,19 +184,20 @@ h1, .text-6xl { font-size: 2.25rem !important; line-height: 1.05 !important; }
 }
 
 /* Hero background blur and subtle motion */
+
 .hero-bg-blur {
-  filter: blur(8px) saturate(1.05) contrast(1.02);
+  filter: blur(0) saturate(1.02) contrast(1.03);
   transform-origin: center;
   will-change: transform, filter;
 }
 
-/* gentle parallax pan animation */
+/* very subtle parallax pan animation */
 @keyframes heroPan {
-  0% { transform: scale(1.02) translateX(0%); }
-  50% { transform: scale(1.05) translateX(-3%); }
-  100% { transform: scale(1.02) translateX(0%); }
+  0% { transform: scale(1.005) translateX(0%); }
+  50% { transform: scale(1.02) translateX(-0.8%); }
+  100% { transform: scale(1.005) translateX(0%); }
 }
-.hero-bg-blur { animation: heroPan 20s ease-in-out infinite; }
+.hero-bg-blur { animation: heroPan 28s ease-in-out infinite; }
 
 /* reduce visual noise under content */
 .hero-bg-blur + .absolute.inset-0 { mix-blend-mode: multiply; }

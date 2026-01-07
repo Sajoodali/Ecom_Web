@@ -169,10 +169,10 @@ const App: React.FC = () => {
             {view === 'home' && (
               <div className="space-y-24">
                 {/* Modern Hero Section */}
-                <div className="relative rounded-[60px] overflow-hidden bg-slate-950 h-[500px] sm:h-[650px] flex items-center shadow-3xl shadow-slate-200/50 group">
+                <div className="relative hero-vignette rounded-[60px] overflow-hidden bg-slate-950 h-[500px] sm:h-[650px] flex items-center shadow-3xl shadow-slate-200/50 group">
                   <div className="absolute inset-0 overflow-hidden">
                     <img 
-                      src="https://source.unsplash.com/random/2000x1200?workspace,desk,tech" 
+                      src="/background.jpg" 
                       className="w-full h-full object-cover hero-bg-blur transition-transform duration-[12s] group-hover:scale-110" 
                       alt="Hero"
                     />
