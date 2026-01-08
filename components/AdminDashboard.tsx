@@ -67,6 +67,17 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBack, products, setPr
     e.preventDefault();
     setIsSubmitting(true);
     try {
+      // If a File is selected in the input, upload it to Supabase storage and set formData.image
+      if (fileInputRef.current && fileInputRef.current.files && fileInputRef.current.files[0]) {
+        const file = fileInputRef.current.files[0];
+        const filePath = `product-images/${Date.now()}_${file.name}`;
+        const { data: uploadData, error: uploadError } = await supabase.storage
+          .from('product-images')
+          .upload(filePath, file, { cacheControl: '3600', upsert: false });
+        if (uploadError) throw uploadError;
+        const { data: urlData } = await supabase.storage.from('product-images').getPublicUrl(uploadData.path);
+        formData.image = urlData.publicUrl;
+      }
       if (editingProduct) {
         const { id, ...updateData } = formData;
         const { data, error } = await supabase.from('products').update(updateData).eq('id', editingProduct.id).select();
@@ -316,6 +327,33 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBack, products, setPr
                 <div className="space-y-3">
                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Reserve Units</label>
                    <input type="number" required value={formData.stock} onChange={e => setFormData({...formData, stock: Number(e.target.value)})} className="w-full p-6 bg-slate-50 border-2 border-transparent rounded-3xl text-xl font-black outline-none focus:border-indigo-600 transition-all" />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div className="space-y-3">
+                   <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Category</label>
+                   <select value={formData.category} onChange={e => setFormData({...formData, category: e.target.value as any})} className="w-full p-4 bg-slate-50 border-2 border-transparent rounded-3xl text-sm font-bold outline-none focus:border-indigo-600 transition-all">
+                     {['Electronics','Lifestyle','Accessories','Wellness','Home'].map(c => (
+                       <option key={c} value={c}>{c}</option>
+                     ))}
+                   </select>
+                </div>
+                <div className="space-y-3">
+                   <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Upload Image (or paste URL below)</label>
+                   <div className="flex items-center gap-3">
+                      <input ref={fileInputRef} type="file" accept="image/*" className="hidden" id="image-upload" onChange={() => {
+                        const f = fileInputRef.current?.files?.[0];
+                        if (f) setFormData(prev => ({...prev, image: URL.createObjectURL(f)}));
+                      }} />
+                      <label htmlFor="image-upload" className="px-4 py-3 bg-slate-100 rounded-2xl cursor-pointer text-sm font-black">Choose file</label>
+                      <span className="text-xs text-slate-400">or drag & drop</span>
+                   </div>
+                   {formData.image && (
+                     <div className="mt-2">
+                       <img src={formData.image} className="w-28 h-20 object-cover rounded-md shadow-sm" />
+                     </div>
+                   )}
                 </div>
               </div>
 
